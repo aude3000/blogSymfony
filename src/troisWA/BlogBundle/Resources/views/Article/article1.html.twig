@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Blog avec symfony</title>
+            <meta charset="UTF-8" />
+            <link rel="stylesheet" href="css/reset.css" />
+            <link rel="stylesheet" href="css/style.css" />
+        </head>
+        <body>
+            <h1>
+                page pour un article défini par un Id
+            </h1>
+
+            <!-- affichage d'une variable -->
+            <p>vue de l'article {{ articleId }}</p>
+        <!-- "articleId" est passée en paramètre dans la fonction showAction du fichier ArticleController.php -->
+
+
+        <!-- exemple d'exécution logique -->
+        {%  if articleId > 25 %}
+        <h1>Pas d'article</h1>
+        {% else %}
+            <h1>Article {{ articleId }}</h1>
+        {% endif %}
+
+
+
+        </body>
+    </html>
+
+{% block title %}
+    {{  parent()}}
+    Accueil
+{% endblock %}
+
+{% block body %}
+    <h1>Bienvenu dans notre patchwork d'articles</h1>
+
+
+{% endblock %}

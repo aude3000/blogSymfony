@@ -1,0 +1,12 @@
+trois_wa_admin:
+    resource: "@troisWAAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+trois_wa_blog:
+    resource: "@troisWABlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+trois_wa_my_first_project_web_site:
+    resource: "@TroisWAMyFirstProjectWebSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+

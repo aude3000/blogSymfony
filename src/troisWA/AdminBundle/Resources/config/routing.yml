@@ -1,0 +1,19 @@
+twa_ab_article_add:
+    path: /admin/article/add
+    defaults: { _controller: troisWAAdminBundle:Article:add }
+
+twa_ab_article_delete:
+    path: /admin/article/delete/{articleId}
+    defaults: { _controller: troisWAAdminBundle:Article:delete }
+# --> ajouter la fonction deleteAction($articleId) dans ArticleController.php dans src/troisWA/AdminBundle/Controller/ArticleController
+
+# page de gestion des articles
+twa_ab_dashboard:
+    path: /admin
+    defaults: { _controller: troisWAAdminBundle:Page:dashboard }
+# page d'édition des articles
+twa_ab_article_edit:
+    path: /admin/article/edit/{articleId}
+    defaults: { _controller: troisWAAdminBundle:Page:dashboard }
+    requirements:
+            articleId: \d+

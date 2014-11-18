@@ -1,0 +1,15 @@
+{% extends 'troisWABlogBundle::layout.html.twig' %}
+{# héritage de "layout.html.twig #}
+{# layout.html.twig est à la racine du dossier "view"
+   d'où les "::" avec pas de dossier spécifié entre ces
+   :: #}
+{% block title %}
+    {{  parent()}}
+    Accueil
+{% endblock %}
+
+{% block content %}
+    <h1>Je suis sur la page home</h1>
+
+
+{% endblock %}

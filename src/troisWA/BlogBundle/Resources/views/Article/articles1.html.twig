@@ -1,0 +1,41 @@
+<!-- page éducatif -->
+<!-- héritage du fichier "MyFirstSymfonyProject/app/Ressources/views/base.html.twig" -->
+{% extends "::base.html.twig" %}
+{% block title %} Blog avec symfony {% endblock %}
+{% block body %}
+    <h1>liste des articles</h1>
+
+    <ul>
+        {% for article in articlesList %}
+            <li>{{ article.titre }}</li>
+        {% else %}
+            <li>Pas d'articles disponibles</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+<!-- avant héritage
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Blog avec symfony</title>
+            <meta charset="UTF-8" />
+            <link rel="stylesheet" href="css/reset.css" />
+            <link rel="stylesheet" href="css/style.css" />
+        </head>
+        <body>
+            <h1>liste des articles</h1>
+
+            <ul>
+                {% for article in articlesList %}
+                    <li>{{ article.titre }}</li>
+                    {% else %}
+                    <li>Pas d'articles disponibles</li>
+                {% endfor %}
+
+            </ul>
+
+        </body>
+    </html>
+-->

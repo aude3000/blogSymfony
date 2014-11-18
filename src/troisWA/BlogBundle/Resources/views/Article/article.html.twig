@@ -1,0 +1,36 @@
+{% extends "troisWABlogBundle::layout.html.twig" %}
+
+{% block title %}
+    {{  parent()}}
+    articles {{ article.articleId }}
+{% endblock %}
+
+{% block content %}
+            <h1>
+                page pour un article défini par un Id
+            </h1>
+
+            <!-- affichage d'une variable -->
+            <p>vue de l'article {{ article.articleId }}</p>
+        <!-- "articleId" est passée en paramètre dans la fonction showAction du fichier ArticleController.php -->
+
+
+        <!-- exemple d'exécution logique -->
+        {%  if article.articleId > 25 %}
+        <h2>Pas d'article</h2>
+        {% else %}
+            <h2>Article {{ article.articleId }}</h2>
+            <h4>article du {{ article.articleDate|date("d/m/y") }}</h4>
+            <!-- voir php.net date pour 'date("d/m/y")' -->
+            <!-- "|" se dit "pipe" et c'est du twig" -->
+            <p><strong>{{ article.articleTitle|upper }}</strong></p>
+            <p>{{  article.articleContent }}</p>
+        {% endif %}
+
+
+
+
+{% endblock %}
+
+
+

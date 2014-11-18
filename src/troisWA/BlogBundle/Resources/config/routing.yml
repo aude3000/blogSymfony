@@ -1,0 +1,24 @@
+twa_bb_homepage:
+    path:     /
+    defaults: { _controller: troisWABlogBundle:Page:index }
+# "Page" car relié au controller "PageController.php" à créer dans le dossier "Contrller"
+# "index" pour le nom de la fonction "indexAction" dans le controller "PageCntoller.php"
+twa_bb_articles:
+    path:     /articles
+    defaults: { _controller: troisWABlogBundle:Article:list }
+
+twa_bb_article:
+    path:     /article/{articleId}
+    defaults: { _controller: troisWABlogBundle:Article:show }
+    #pour préciserque atricleId doit être un nombre :#
+    #voir expression régulière dans  :#
+    #http://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/les-expressions-regulieres-partie-1-2#
+    requirements:
+        articleId: \d+
+
+twa_bb_contact:
+    path: /contact
+    defaults: { _controller: troisWABlogBundle:Page:contact }
+    # "Page" pour que ce soit géré par le controller "PageController.php"
+    # "contact" sera la méthode "contactAction()" dans la class "PageController"
+

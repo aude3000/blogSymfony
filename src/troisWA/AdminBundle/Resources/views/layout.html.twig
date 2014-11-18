@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+{% block title %} Blog avec symfony {% endblock %}
+{% block body %}
+
+    <h1>Gestion des articles</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ path('twa_ab_dashboard') }}">Tableau de bord</a></li>
+            <li><a href="#">Catégories</a></li>
+        </ul>
+    </nav>
+
+    {%  block content %}{% endblock %}
+
+{% endblock %}

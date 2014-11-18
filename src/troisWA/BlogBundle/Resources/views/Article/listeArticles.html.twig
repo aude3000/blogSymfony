@@ -1,0 +1,22 @@
+{% extends "troisWABlogBundle::layout.html.twig" %}
+
+{% block title %}
+    {{  parent()}}
+    les articles
+{% endblock %}
+
+{% block content %}
+    <h1>liste des articles</h1>
+
+    <ul>
+        {% for article in articlesList %}
+            <li><a href="#"></a>{{ article.articleTitle }}</li>
+        {% else %}
+            <li>Pas d'articles disponibles</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+

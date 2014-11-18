@@ -1,0 +1,11 @@
+#path = adresse de l'URL tapée par l'utilisateur
+#TroisWAMyFirstProjectWebSiteBundle = nom du Bundle que j'ai créé
+#Main = une classe du controller "MainController"
+#hello = la méthode "helloAction" de la classe Main du controller "MainController"
+
+
+hello_mon_petit_chat:
+    path: /salut/le-chat
+    defaults: { _controller: TroisWAMyFirstProjectWebSiteBundle:Main:hello }
+
+

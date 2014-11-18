@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+{% block title %} Blog avec symfony {% endblock %}
+{% block body %}
+
+    <h1>Bienvenu dans notre patchwork d'articles</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ path('twa_bb_homepage') }}">Accueil</a></li>
+            <li><a href="{{ path('twa_bb_articles') }}">Les articles</a></li>
+            <li><a href="{{ path('twa_bb_contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    {%  block content %}{% endblock %}
+
+{% endblock %}
