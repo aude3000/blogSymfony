@@ -44,10 +44,11 @@ class Article
     private $articleContent;
 
     /**
+     *
      * @var Category
      *
-     * @ORM\ManyToOne(targetEntity="troisWA\BlogBundle\Entity\Category")
-     * @ORM\JoinColumn(name="categoryId", referencedColumnName="categoryId")
+     * @ORM\ManyToOne(targetEntity="TroisWA\BlogBundle\Entity\Category")
+     * @ORM\JoinColumn(name="CategoryId")
      */
     private $Category;
 
@@ -165,27 +166,4 @@ class Article
     }
 
 
-
-    /**
-     * Set Category
-     *
-     * @param \TroisWA\BlogBundle\Entity\Category $category
-     * @return Article
-     */
-    public function setCategory(\TroisWA\BlogBundle\Entity\Category $category = null)
-    {
-        $this->Category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get Category
-     *
-     * @return \TroisWA\BlogBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->Category;
-    }
 }

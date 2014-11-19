@@ -1,6 +1,6 @@
 trois_wa_admin:
     resource: "@troisWAAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 trois_wa_blog:
     resource: "@troisWABlogBundle/Resources/config/routing.yml"

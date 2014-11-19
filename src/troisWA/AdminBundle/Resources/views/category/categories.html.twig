@@ -1,0 +1,32 @@
+{% extends 'troisWAAdminBundle::layout.html.twig' %}
+
+{% block title %}
+    {{  parent()}}
+    Tableau de bord
+{% endblock %}
+
+{% block content %}
+    <p><a href={{ path('twa_ab_category_add') }}>Ajouter une catégorie</a></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Catégorie</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for category in categoriesList %}
+        <tr>
+
+            <td>{{ category.categoryName }}</td>
+            <td><a href={{ path('twa_ab_category_edit', { 'categoryId': category.categoryId }) }}>Modifier</a></td>
+            <td><a href="{{  path('twa_ab_category_delete', { 'categoryId': category.categoryId }) }}">Supprimer</a></td>
+        </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune catégorie</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

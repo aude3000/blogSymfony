@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ArticleType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,12 +15,8 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('articleDate', 'date')
-            ->add('articleTitle', 'text')
-            ->add('articleContent', 'textarea')
-            ->add('Category', 'entity', array(
-                'class' => 'troisWABlogBundle:Category',
-                'property' => 'CategoryName'))
+
+            ->add('categoryName', 'text')
             ->add('save', 'submit')
         ;
     }
@@ -31,7 +27,7 @@ class ArticleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'troisWA\BlogBundle\Entity\Article'
+            'data_class' => 'troisWA\BlogBundle\Entity\Category'
         ));
     }
 
@@ -40,6 +36,6 @@ class ArticleType extends AbstractType
      */
     public function getName()
     {
-        return 'troiswa_blogbundle_article';
+        return 'troiswa_blogbundle_category';
     }
 }

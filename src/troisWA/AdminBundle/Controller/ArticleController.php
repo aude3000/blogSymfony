@@ -92,5 +92,48 @@ class ArticleController extends Controller
         $entityManager->flush();
         //puis rediriger vers la liste des articles
         return $this->redirect($this->generateUrl('twa_bb_articles'));
-}
+    }
+    public function editAction($articleId, Request $request)
+    {
+        //la request
+        // appel au service Doctrine puis au service EntityManager
+        $entityManager = $this
+            ->getDoctrine()
+            ->getManager();
+        //on va selectionner l'article qu'on va éditer, donc il faut acceder au service Repository
+        $entityRepository = $entityManager->getRepository('troisWABlogBundle:Article');
+        $articleObject = $entityRepository->find($articleId);
+        //on va chercher le servive des formulaire pour l'appliquer à l'objet $articleForm
+        $articleForm = $this
+            ->get('form.factory')
+            ->create(new ArticleType(), $articleObject)
+            ;
+        //transformer le formulaire en vue (= en page html) par $articleFormView c'est à dire pour transformer $articleForm en html
+        $articleFormView = $articleForm->createView();
+
+        // 1- Afficher le formulaire prérempli
+        // 2- deux cas possibles :
+        // 2.1 données conformes au format : enregistrer dans la BDD
+        // 2.2 données non conformes au format : re-afficher le formulaire avec les erreurs (= signaler les champs mal remplis) ET avec les données qui ont été saisie
+        // vérifier la bonne conformité du format des données du formulaire avec la methode handleRequest()
+        if ($articleForm->handleRequest($request)->isValid())
+        {
+            $entityManager->persist($articleObject);
+            $entityManager->flush();
+            // redirection vers la listes des articles
+            // rappel : un return arrête une fonction
+            return $this->redirect($this->generateUrl('twa_ab_dashboard'));
+        }
+        // rendu de la vue : conversion en twig de la vue
+        $renderedView = $this->render('troisWAAdminBundle:Article:form.html.twig', array('articleForm'=> $articleFormView));
+
+        //return de la vue
+        return $renderedView;
+
+
+        // 1- Afficher le formulaire prérempli
+        // 2- deux cas possibles :
+        // 2.1 données conformes au format : enregistrer dans la BDD
+        // 2.2 données non conformes au format : re-afficher le formulaire avec les erreurs (= signaler les champs mal remplis) ET avec les données qui ont été saisie
+    }
 }

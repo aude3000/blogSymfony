@@ -1,19 +1,41 @@
+# gestion des articles
 twa_ab_article_add:
-    path: /admin/article/add
+    path: /article/add
     defaults: { _controller: troisWAAdminBundle:Article:add }
 
 twa_ab_article_delete:
-    path: /admin/article/delete/{articleId}
+    path: /article/delete/{articleId}
     defaults: { _controller: troisWAAdminBundle:Article:delete }
 # --> ajouter la fonction deleteAction($articleId) dans ArticleController.php dans src/troisWA/AdminBundle/Controller/ArticleController
 
 # page de gestion des articles
 twa_ab_dashboard:
-    path: /admin
+    path: /
     defaults: { _controller: troisWAAdminBundle:Page:dashboard }
+
 # page d'édition des articles
 twa_ab_article_edit:
-    path: /admin/article/edit/{articleId}
-    defaults: { _controller: troisWAAdminBundle:Page:dashboard }
+    path: /article/edit/{articleId}
+    defaults: { _controller: troisWAAdminBundle:Article:edit }
     requirements:
-            articleId: \d+
+        articleId: \d+
+# gestion des catégories
+twa_ab_categories:
+    path: /categories
+    defaults: { _controller: troisWAAdminBundle:Category:list }
+
+twa_ab_category_add:
+    path: /categories/add
+    defaults: { _controller: troisWAAdminBundle:Category:add }
+
+twa_ab_category_edit:
+    path: /categories/edit/{categoryId}
+    defaults: { _controller: troisWAAdminBundle:Category:edit }
+    requirements:
+        categoryId: \d+
+
+twa_ab_category_delete:
+    path: /categories/delete/{categoryId}
+    defaults: { _controller: troisWAAdminBundle:Category:delete }
+    requirements:
+        categoryId: \d+

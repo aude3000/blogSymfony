@@ -30,8 +30,9 @@ class PageController extends Controller
         // $articlesList = $entityRepository->findAll();
 
         //utilisation de la fonction créée dans "ArticleRepository.php pour lister les articles par dates descendantes
-        $articlesList = $entityRepository->listByDateDesc();
-
+        //$articlesList = $entityRepository->listByDateDesc();
+        // utilisation de la methode findAll() pour pouvoir afficher la catégorie ajouté après
+        $articlesList = $entityRepository->findAll();
         $renderedView = $this->render('troisWAAdminBundle:Page:dashboard.html.twig', array('articlesList' => $articlesList));
         return $renderedView;
     }
